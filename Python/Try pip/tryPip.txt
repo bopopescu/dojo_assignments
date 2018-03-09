@@ -1,0 +1,15 @@
+pip install Django==1.11.9 : installed Django
+
+pip list : lists installed packages 
+
+pip install Django==1.11.9 : requirements already satisfied
+
+pip freeze : output installed packages in requirements format
+
+pip freeze > requirements.txt : makes a requirements.txt file and writes pip freeze output in it
+
+pip uninstall Django : uninstalls Django
+
+pip show Django : no output
+
+pip search Flask : looks like it lists out modules you can install
