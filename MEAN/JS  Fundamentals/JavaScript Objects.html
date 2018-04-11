@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaSCript Objects</title>
+</head>
+<body>
+    <script>
+        // Challenge 1 //////////////////////////////////
+        // let students = [
+        //     {name: 'Remy', cohort: 'Jan'},
+        //     {name: 'Genevieve', cohort: 'March'},
+        //     {name: 'Chuck', cohort: 'Jan'},
+        //     {name: 'Osmund', cohort: 'June'},
+        //     {name: 'Nikki', cohort: 'June'},
+        //     {name: 'Boris', cohort: 'June'}
+        // ];
+
+        // for( let people in students) {
+        //     // console.log('Name: '+students[people].name+', cohort: '+students[people].cohort)
+        //     console.log(`Name: ${students[people].name}, cohort: ${students[people].cohort}`);
+        // }
+
+        // Challenge 2 ////////////////////////////////////
+        let users = {
+            employees: [
+                {'first_name':  'Miguel', 'last_name' : 'Jones'},
+                {'first_name' : 'Ernie', 'last_name' : 'Bertson'},
+                {'first_name' : 'Nora', 'last_name' : 'Lu'},
+                {'first_name' : 'Sally', 'last_name' : 'Barkyoumb'}
+            ],
+            managers: [
+                {'first_name' : 'Lillian', 'last_name' : 'Chambers'},
+                {'first_name' : 'Gordon', 'last_name' : 'Poe'}
+            ]
+        };
+        for (let u in users) {
+            console.log(u.toUpperCase());
+            for (let i =0; i<users[u].length; i++) {
+                var sum = users[u][i].last_name.length + users[u][i].first_name.length
+                console.log(`${i+1} - ${users[u][i].last_name.toUpperCase()}, ${users[u][i].first_name.toUpperCase()} - ${sum}`)
+            }
+        }
+    </script>
+</body>
+</html>

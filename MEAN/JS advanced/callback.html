@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//         console.log("NOW: ");
+// console.log("Declaring and assigning variable 'ninja'.");
+// var ninja = 'Libby';
+// setTimeout( function myCallbackFunction(){
+//   console.log("LATER: ")
+//   console.log(ninja, "LATER"); }, 2000
+// );
+// console.log("Printing ninja value.");
+// console.log(ninja, "NOW");
+
+// var a = 2;
+// var b = function() { console.log("something"); };
+// function doSomething(x) {
+//   console.log(typeof(x));
+// }
+// doSomething(a);
+// doSomething(b);
+
+// function doSomething(possibleCallback) {
+//   if (typeof(possibleCallback) === 'function'){
+//     console.log('possibleCallback is a callback!');
+//     possibleCallback(); //we can invoke the callback!
+//   }
+//   else {
+//     console.log('possibleCallback: ', possibleCallback, ' is not a callback function.');
+//   }
+// }
+// doSomething(function myCallback(){ console.log('yes, I am a callback!') });
+// doSomething('string');
+
+function getStuffFromDatabase(callback){
+  var data;
+  var myTimer = setTimeout(function(){
+    if (typeof(callback) == 'function'){
+      data = [{name:'Todd'},{name:'Michael'},{name:'Portia'}];
+      callback(data);
+    }
+  }, 10000);
+  return data;
+}    
+// ************CHANGES HERE **************
+function requestDataFromDatabase(){
+  var data = getStuffFromDatabase(function myCallback(data){ // ooh shiny callback!.. when is it invoked???
+    console.log(data, "ASynchronous");
+    for (var i = 0; i < data.length; i ++){
+      console.log(data[i].name);
+    }
+  });
+  console.log(data, "Synchronous");
+}
+//***************** END CHANGES **********************
+function catchFly(){
+  console.log('I just caught a fly!');
+}
+requestDataFromDatabase();
+// keep running my program!
+console.log('Hello');
+catchFly();
+//etc.
+        </script>
+</body>
+</html>

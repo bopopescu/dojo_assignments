@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Animal Dashboard</title>
+</head>
+<body>
+    <h3> Here is the animal's profile</h3>
+    <% for (var a in animals) { %>
+        <p>id: <%= animals[a]._id %></p>
+        <p>name:<%= animals[a].name %></p>
+        <p>age: <%= animals[a].age %></p>
+        <p>create_at:<%= animals[a].created_at %></p>
+        <form action='/animals/edit/<%= animals[a]._id %>' method='get'>
+            <input type='submit' value='edit'>
+        </form>
+    <% } %>
+</body>
+</html>

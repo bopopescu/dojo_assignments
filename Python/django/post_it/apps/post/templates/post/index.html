@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'post/css/index.css' %}" />
+    <title>Post it!</title>
+</head>
+<body>
+    <h1>My Posts</h1>
+    {% for p in posts %}
+        <div class='post_it'>{{p.content}}</div>
+    {% endfor %}
+    <form action='/post' method='post'>
+        {% csrf_token %}
+        <p>Add a note:</p>
+        <p><textarea name='content' class='post_input'></textarea></p>
+        <input type='submit' value='Post it!'>
+    </form>
+</body>
+</html>

@@ -1,0 +1,14 @@
+ python manage.py createsuperuser
+
+
+then in admin.py 
+
+from models import *
+
+admin.site.register(User)
+admin.site.register(Message)
+admin.site.register(Comment)
+
+runserver
+
+localhost:8000/admin

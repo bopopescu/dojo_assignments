@@ -1,0 +1,72 @@
+###############STEP 1
+
+Create a virtual environment in your virtual environment folder.
+
+> virtualenv djangoEnv
+> source djangoEnv/bin/activate
+(djangoEnv)>pip installcopy Django==1.10
+
+###############STEP 2
+
+Now whenever you want to do a Django project, you will be activating this same virtualenv.
+
+Navigate to a location where you want to create your project
+
+> django-admin startproject project_name
+
+Navigate into the project_name directory 
+
+# Make a new apps directory
+> mkdir apps
+# Navigate into apps
+> cd apps
+> touch __init__.py        #This lets the Python interpreter know that this folder is present and may be accessed
+
+
+Notice that when you started a project a manage.py file was automatically created. 
+That file can be called using one of several commands to request a specific operation. 
+Let's do that from within the apps directory to start a new app.
+
+> python ../manage.py startapp app_name  #creates a new app in apps folder
+
+In settings.py (this file lives inside the project_name directory. we are going to have to add our application to the project.
+That means adding apps. app_name to our INSTALLED_APPS list:
+
+'apps.app_name'
+
+
+Go to your project_name folder and run python manage.py runserver from the terminal. Then proceed to localhost:8000
+
+
+now open project_name/urls.py. you have to modufy this document in order to use routes from your app
+# make sure 'include' is imported on top
+
+urlpatterns = [
+    url(r'^', include('apps.app_name.urls'))
+]
+
+now make a urls.py file in your app directory
+
+> cd apps/app_name
+> touch urls.py
+
+apps/app_name/urls.py
+
+from django.conf.urls import url
+from . import views          
+  
+urlpatterns = [
+    url(r'^$', views.index)    
+]
+
+
+Let’s build our first views function, index, inside of views:
+
+apps/app_name/views.py
+
+from django.shortcuts import render, HttpResponse, redirect
+  
+
+def index(request):
+    response = "Hello, I am your first request!"
+    return HttpResponse(response)

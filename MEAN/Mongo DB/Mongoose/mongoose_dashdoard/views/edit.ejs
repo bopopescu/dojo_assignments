@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Animal Dashboard</title>
+</head>
+<body>
+    <h3>Edit this animal</h3>
+    <% for (var a in animals) { %>
+    <form action='/animals/<%= animals[a]._id %>' method='POST'>
+        <p>Animal name: <input type='text' name='name' value='<%= animals[a].name %>'></p>
+        <p>Age: <input type='text' name='age' value='<%= animals[a].age %>'></p>
+        <input type='submit' value='edit animal'>
+    </form>
+    <form action='/animals/destroy/<%= animals[a]._id %>' method='POST'>
+        <input type='submit' value='delete animal'>
+    </form>
+    <% } %>
+</body>
+</html>

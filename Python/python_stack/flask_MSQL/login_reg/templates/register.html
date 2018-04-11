@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p style='color:red'>{{message}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <form action='/process' method='post'>
+        <p>First name (Must be at least 2 characters and only letters): <input type='text' name='first_name'></p>
+        <p>Last name (Must be at least 2 characters and only letters): <input type="text" name="last_name"></p>
+        <p>Email (Must be valid Email address): <input type="text" name="email"></p>
+        <p>Password (Must be 8 characters long): <input type="password" name="password"></p>
+        <p>Confirm Password (Must match password): <input type="password" name="confirm_password"></p>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

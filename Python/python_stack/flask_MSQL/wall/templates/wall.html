@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>The Wall</h1>
+    <p>Welcome {{ session['user'][0]['first_name'] }}</p>
+    <form action='/log_out'>
+        <input type='submit' value='Log out'>
+    </form>
+    <p>Post a message</p>
+    <form action='/post_message' method='post'>
+        <textarea name='mess_content'></textarea>
+        <p><input type='submit' value='Post a message'></p>
+    </form>
+    {% for m in message %}
+        <tr>
+            <p>{{ m['first_name'] }} {{ m['last_name'] }} {{ m['created_at'].month }}-{{ m['created_at'].day}}-{{ m['created_at'].year }} {{ m['created_at'].hour }}:{{ m['created_at'].minute }}</p>
+            <p>{{ m['mess_content'] }}</p>
+        </tr>  
+        {% for c in comment %}   
+            {% if c['m_id'] == m['m_id'] %}    
+                <p>{{ c['first_name'] }} {{ c['last_name'] }} {{ c['created_at'].month }}-{{ c['created_at'].day}}-{{ c['created_at'].year }} {{ c['created_at'].hour }}:{{ c['created_at'].minute }}</p>
+                <p>{{ c['com_content'] }}</p>
+            {% endif %}
+        {% endfor %}
+        <form action='/post_comment' method='POST'>
+            <input type="hidden" name='mess_id' value={{ m['m_id'] }}>
+            <textarea name='com_content'></textarea>
+            <p><input type='submit' value='Post a comment'></p>
+        </form>
+    {% endfor %}
+</body>
+</html>

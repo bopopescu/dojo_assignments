@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add a student to all bootcamp courses</title>
+</head>
+<body>
+    <h2>Add a new course</h2>
+    {% if messages %}
+        <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    <form action='/add' method='post'>
+        {% csrf_token %}
+        <p>Name: <input type='text' name='name'></p>
+        <p>Description: <textarea name='desc'></textarea></p>
+        <input type='submit' value='Add'>
+    </form>
+
+    <h2>Courses</h2>
+    <table>
+        <thead>
+            <tr>
+                <td>Course Name</td>
+                <td>Description</td>
+                <td>Date Added</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        {% for c in courses %}
+            <tr>
+                <td>{{c.name}}</td>
+                <td>{{c.desc}}</td>
+                <td>{{c.created_at}}</td>
+                <td><a href='/destroy/{{c.id}}'>remove</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

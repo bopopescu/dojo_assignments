@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Deck of Cards</title>
+</head>
+<body>
+    <script>
+        class Deck {
+            constructor() {
+                this.deck = [];
+                this.dealt_cards = [];
+            }
+
+            generate_deck() {
+
+                let card = (suit, value) => {
+                    this.name = value + ' of ' + suit;
+                    this.suit = suit;
+                    this.value = value;
+                    return {name:this.name, suit:this.suit, value:this.value}
+                }
+                
+                let values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+                let suits = ['Clubs', 'Diamonds', 'Hearts', 'Spades'];
+
+                for ( let s = 0; s < suits.length; s++) {
+                    for ( let v = 0; v< values.length; v++) {
+                        this.deck.push(card(suits[s], values[v]))
+                    }
+                }
+            }
+
+            print_deck () {
+                if (this.deck.length == 0) {
+                    console.log('The deck has not been generated');
+                } else {
+                    for ( let c = 0; c < this.deck.length; c++) {
+                        console.log(this.deck[c]);
+                    }
+                }
+            }
+
+            shuffle () {
+                let current_ind = this.deck.length, temp_val, rand_ind;
+
+                while (0 != current_ind) {
+                    rand_ind = Math.floor(Math.random() * current_ind);
+                    current_ind -= 1;
+                    temp_val = this.deck[current_ind];
+                    this.deck[current_ind] = this.deck[rand_ind];
+                    this.deck[rand_ind] = temp_val;
+                }
+            }
+        }
+        
+        class Player {
+            constructor(){
+                
+            }
+        }
+
+        deck = new Deck();
+        deck.generate_deck();
+        deck.print_deck();
+        deck.shuffle();
+        deck.print_deck();
+    </script>
+</body>
+</html>

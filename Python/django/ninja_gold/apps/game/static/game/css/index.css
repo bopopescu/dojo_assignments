@@ -1,0 +1,27 @@
+
+
+.gold {
+    display:inline-block;
+    width: 240px;
+    height: 20px;
+    padding: 3px 10px 3px 10px;
+    border: 1px solid black;
+}
+
+.locations div {
+    display: inline-block;
+    width: 200px;
+    height: 130px;
+    border: 1px solid black;
+    /* margin: 5px 10px 5px 0px;
+    padding: 10px 19px 19px 19px; */
+    text-align: center;
+}
+
+.activities {
+    padding-left: 15px;
+    overflow: scroll;
+    width: 820px;
+    height: 300px;
+    border: 1px solid black
+}

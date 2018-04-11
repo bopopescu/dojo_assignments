@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Results</title>
+</head>
+<body>
+    <h3>Thanks for submitting this form! You have submitted this form {{request.session.counter}} times now.</h3>
+    <h4>Submitted Information</h4>
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td>{{request.session.name}}</td>
+        </tr>
+        <tr>
+            <td>Dojo Location:</td>
+            <td>{{request.session.dojo_location}}</td>
+        </tr>
+        <tr>
+            <td>Favorite Language:</td>
+            <td>{{request.session.favorite_language}}</td>
+        </tr>
+        <tr>
+            <td>Comment:</td>
+            <td>{{request.session.comment}}</td>
+        </tr>
+    </table>
+
+</body>
+</html>

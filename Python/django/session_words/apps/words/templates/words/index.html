@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Session Words</title>
+</head>
+<body>
+    <div class='left_side'>
+        <h2>Add a new word</h2>
+        <form action='/process' method='get'>
+            {% csrf_token %}
+            <input type='text' name='word'>
+            <p>Choose color:</p>
+            <p><input type="radio" id="red" name="color" value="red">
+            <label for="red">Red</label></p>
+            <p><input type="radio" id="green" name="color" value="green">
+            <label for="green">Green</label></p>
+            <p><input type="radio" id="blue" name="color" value="blue">
+            <label for="blue">Blue</label></p>
+            <p><input type='checkbox' name='big' value='2em'>show in BIG fonts!</p>
+            <input type='submit' value='Add to Session'>
+        </form>
+    </div>
+    <form action='/clear'>
+        <input type='submit' value='Clear Session'>
+    </form>
+    <div class='right_side'>
+        <table>
+            <tr>
+                <td>{{request.session.activity|safe}}</td>
+                <td>{{request.session.time | safe}}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript Math</title>
+</head>
+<body>
+    <script>
+        // MATH 1 /////////////////////////////////
+        // function zero_negativity(array){
+        //     for (var i = 0; i<array.length; i++){
+        //         if(array[i]<0){
+        //             return false;
+        //         }
+        //     }
+        //     return true;
+        // }
+        // var x = zero_negativity([0,1,2,3,4,5])
+        // console.log(x);
+
+        // MATH 2 /////////////////////////////////
+        function is_even(int){
+            if (int %2 == 0){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        // var x = is_even(8);
+        // console.log(x);
+
+        // MATH 3 /////////////////////////////////
+        function how_many_even(array){
+            var count =0;
+            for (var i =0; i<array.length; i++){
+                var int = array[i]
+                if (is_even(int)){
+                    count+=1;
+                }
+            }
+            return count;
+        }
+
+        var y= how_many_even([1,1,2,2,2,2,2,2,1,2])
+        console.log(y);
+
+        // MATH 4 /////////////////////////////////
+        // function create_dummy_array(n){
+        //     var dumArr= [];
+        //     for (var i=0; i<n; i++){
+        //         dumArr[i] = Math.floor(Math.random() * 9) + 1;
+        //     }
+        //     return dumArr;
+        // }
+        // var j = create_dummy_array(20);
+        // console.log(j);
+
+        // MATH 5 /////////////////////////////////
+        // function random_choice(array){
+        //     var i = Math.floor(Math.random() * array.length-1) +1;
+        //     return array[i]
+        // }
+        // var l = random_choice([1,2,3,4,5,6,7])
+        // console.log(l);
+    </script>
+</body>
+</html>
